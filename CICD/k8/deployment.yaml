@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: neeabhishek/talkinglands_nodejs-app:v1
+        image: neeabhishek/talkinglands_nodejs-app:latest
         ports:
         - containerPort: 5000
