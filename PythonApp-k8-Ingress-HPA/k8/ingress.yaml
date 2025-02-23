@@ -1,0 +1,17 @@
+#Here we are giving the minikube ip as the host in ingress definition file with nip.io as the dynamic DNS (free) to avoid writes in /etc/hosts. This will enable the ingress to correctly route the request to the python-webapp-svc and then to the python-webapp.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: python-k8s-app-ingress
+spec:
+  rules:
+  - host: 192.168.49.2.nip.io
+    http:
+      paths:
+      - path: /talking-lands-task
+        pathType: Prefix
+        backend:
+          service:
+            name: python-webapp-svc
+            port:
+              number: 80
